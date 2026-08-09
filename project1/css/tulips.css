@@ -29,9 +29,7 @@
     position: absolute;
     top: 0;
     width: 78px;
-    height: 140px;
-    /* Rounded top, tapering to a point at the bottom where it meets
-       the stem — this polygon traces that outline */
+    height: 180px;
     clip-path: polygon(
       50% 0%, 78% 8%, 95% 32%, 92% 58%,
       72% 88%, 55% 100%, 50% 96%, 45% 100%,
