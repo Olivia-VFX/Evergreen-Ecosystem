@@ -16,12 +16,6 @@
   }
  
   /* ============ FLOWER ============ */
-  /* Instead of one flat pink shape, a realistic tulip is 3 separate
-     petals overlapping: two outer petals that curl outward, and one
-     (or two) center petals that sit in front. That overlap + the gap
-     between them (the "seam") is what your reference image is doing
-     and it's the single biggest thing that makes it read as 3D
-     instead of a flat badge shape. */
   .flower {
     position: absolute;
     top: 0;
@@ -165,7 +159,7 @@
   .leaf {
     position: absolute;
     top: 150px;
-    width: 46px;
+    width: 90px;
     height: 130px;
     clip-path: polygon(50% 0%, 62% 25%, 58% 75%, 50% 100%, 42% 75%, 38% 25%);
     background: linear-gradient(
