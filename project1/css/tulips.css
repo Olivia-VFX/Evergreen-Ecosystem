@@ -48,10 +48,10 @@ body {
 
   .leaf.left {
     left: 10px;
-    transform: rotate(-30deg);
+    transform: rotate(-210deg);
   }
 
   .leaf.right {
     right: 10px;
-    transform: rotate(30deg) scaleX(-1);
+    transform: rotate(210deg) scaleX(-1);
   }
