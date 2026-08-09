@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e0f7fa;
+  }
+
+  .tulip {
+    position: relative;
+    width: 80px;
+    height: 120px;
+  }
+
+  /* Flower head */
+  .flower {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #e91e63;
+    border-radius: 50% 50% 40% 40%;
+    clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+  }
+
+  /* Stem */
+  .stem {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 60px;
+    background: #388e3c;
+  }
+
+  /* Leaves */
+  .leaf {
+    position: absolute;
+    top: 70px;
+    width: 40px;
+    height: 20px;
+    background: #4caf50;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .leaf.left {
+    left: 10px;
+    transform: rotate(-30deg);
+  }
+
+  .leaf.right {
+    right: 10px;
+    transform: rotate(30deg) scaleX(-1);
+  }
