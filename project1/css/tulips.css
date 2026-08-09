@@ -78,7 +78,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 74px;
-    height: 190px;
+    height: 150px;
     z-index: 2;
     /* Brightest, most saturated petal since it faces forward
        directly toward the light/viewer */
@@ -157,8 +157,8 @@
   .leaf {
     position: absolute;
     top: 150px;
-    width: 90px;
-    height: 190px;
+    width: 1700px;
+    height: 150px;
     clip-path: polygon(50% 0%, 62% 25%, 58% 75%, 50% 100%, 42% 75%, 38% 25%);
     background: linear-gradient(
       100deg,
