@@ -8,4 +8,6 @@ An edutech startup, the Evergreen Ecosystem is a system of educational games whi
 - Learning through exploration
 - AI as a guide
 
-If you want to have updates/know more about these principles, find us on instagram @projevergreenapp!
+If you want to have updates/know more about these principles, find us on instagram @theevergreenecosystem!!!
+
+CURRENT GAME/SLICE IN PROGRESS: MELODIC MEADOWS - TRIOLET TULIPS
