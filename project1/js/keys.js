@@ -14,6 +14,23 @@ const keyPositions = {
   'A#': { left: '76.2%', width: '6.3%', top: '16%', height: '42%' },
 };
 
+const pressedImages = {
+  'C': '../images/C-pressed.png',
+  'D': '../images/D-pressed.png',
+  'E': '../images/E-pressed.png',
+  'F': '../images/F-pressed.png',
+  'G': '../images/G-pressed.png',
+  'A': '../images/A-pressed.png',
+  'B': '../images/B-pressed.png',
+  'C#': '../images/Cs_Db-pressed.png',
+  'D#': '../images/Ds_Eb-pressed.png',
+  'F#': '../images/Fs_Gb-pressed.png',
+  'G#': '../images/Gs_Ab-pressed.png',
+  'A#': '../images/As_Bb-pressed.png',
+};
+
+const activeTimeours = {};
+
 for (const [note, pos] of Object.entries(keyPositions)) {
   const hitbox = document.createElement('div');
   hitbox.classList.add('hitbox', note.includes('#') ? 'black-key' : 'white-key');
@@ -22,5 +39,32 @@ for (const [note, pos] of Object.entries(keyPositions)) {
   hitbox.style.top = pos.top;
   hitbox.style.width = pos.width;
   hitbox.style.height = pos.height;
+  hitbox.addEventListener('mousedown', () => pressKey(note, pos));
   document.querySelector('.piano-container').appendChild(hitbox);
+}
+
+function pressKey(note, pos) {
+  if (activeTimeouts[note]) {
+    clearTimeout(activeTimeouts[note].timerId);
+    activeTiemouts[note].overlay.remove();
+  }
+
+  const overlay = document.createElement('img');
+  overlay.src = pressedImages[note];
+  overlay.classList.add('key-pressed-overlay');
+  overlay.style.left = pos.left;
+  overlay.style.top = pos.top;
+  overlay.style.width = pos.width;
+  overlay.style.height = pos.height;
+  document.querySelector('.piano-container').appendChild(overlay);
+
+  const timerId = setTimeout(() => {
+    overlay.remove();
+    delete activeTimeouts[note];
+  }, 500);
+
+  activeTimeouts[note] = { timerId, overlay };
+
+  const flower = document.querySelector(`.flower[data-note="${note}"]`);
+  if (flower) flower.classList.add('blooming');
 }
