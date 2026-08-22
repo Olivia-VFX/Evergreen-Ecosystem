@@ -9,11 +9,14 @@
   }
  
 .piano-container {
-   position: relative;
-   display: inline-block;
-  }
+   position: fixed;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%); 
+   z-index: 10;
+}
 
 .piano-art {
  display: block;
- width: 100%;
+ width: 150%;
 }
