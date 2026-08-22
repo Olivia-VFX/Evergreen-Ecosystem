@@ -18,10 +18,14 @@
  transform: translateX(-50%);
  width: 70vw;
  min-width: 320px
+ height: 150px; 
+ overflow: hidden;
  z-index: 10;
 }
 
 .piano-art {
  display: block;
  width: 100%;
+ object-fit: cover; 
+ object-position: top;
 }
