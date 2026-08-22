@@ -1,0 +1,19 @@
+ body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #eef7f0 0%, #ffffff 100%);
+    font-family: system-ui, sans-serif;
+  }
+ 
+.piano-container {
+   position: relative;
+   display: inline-block;
+  }
+
+.piano-art {
+ display: block;
+ width: 100%;
+}
