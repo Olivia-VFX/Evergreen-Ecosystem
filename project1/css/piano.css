@@ -9,14 +9,16 @@
   }
  
 .piano-container {
-   position: fixed;
-   display: flex;
+ position: fixed;
+ display: flex;
  align-items: center;
-   bottom: 0;
-   z-index: 10;
+ bottom: 0;
+ width: 90vw;
+ max-width: 800px
+ z-index: 10;
 }
 
 .piano-art {
  display: block;
- width: 150%;
+ width: 100%;
 }
