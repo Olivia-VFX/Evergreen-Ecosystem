@@ -24,4 +24,10 @@ body {
 
 .hitbox {
   position: absolute;
+  cursor: pointer;
+}
+
+.key-pressed-overlay {
+  position: absolute;
+  pointer-events: none;
 }
