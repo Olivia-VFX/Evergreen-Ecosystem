@@ -12,9 +12,12 @@
  position: fixed;
  display: flex;
  align-items: center;
+ justify-content: center;
  bottom: 0;
- width: 250vw;
- max-width: 500px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 50vw;
+ min-width: 320px
  z-index: 10;
 }
 
