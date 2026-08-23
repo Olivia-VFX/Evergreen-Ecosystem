@@ -29,7 +29,28 @@ const pressedImages = {
   'A#': 'images/As_Bb-pressed.png',
 };
 
+const noteSounds = {
+  'C': 'sounds/C.mp3',
+  'D': 'sounds/D.mp3',
+  'E': 'sounds/E.mp3',
+  'F': 'sounds/F.mp3',
+  'G': 'sounds/G.mp3',
+  'A': 'sounds/A.mp3',
+  'B': 'sounds/B.mp3',
+  'C#': 'sounds/Cs_Db.mp3',
+  'D#': 'sounds/Ds_Eb.mp3',
+  'F#': 'sounds/Fs_Gb.mp3',
+  'G#': 'sounds/Gs_Ab.mp3',
+  'A#': 'sounds/Bb_As.mp3',
+};
+
 const activeTimeouts = {};
+
+const preloadedSounds = {};
+for (const [note, path] of Object.entries(noteSounds)) {
+  preloadedSounds[note] = new Audio(path);
+  preloadedSounds[note].load();
+}
 
 for (const [note, pos] of Object.entries(keyPositions)) {
   const hitbox = document.createElement('div');
@@ -48,6 +69,9 @@ function pressKey(note, pos) {
     clearTimeout(activeTimeouts[note].timerId);
     activeTimeouts[note].overlay.remove();
   }
+
+  const sound = preloadedSounds[note].cloneNode();
+  sound.play();
 
   const overlay = document.createElement('img');
   overlay.src = pressedImages[note];
