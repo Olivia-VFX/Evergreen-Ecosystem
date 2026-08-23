@@ -30,6 +30,17 @@ body {
   cursor: pointer;
 }
 
+.clear-garden-btn {
+  position: fixed;
+  left: 85.6%;
+  top: 6.7%;
+  width: 10.2%;
+  height: 13.5%;
+  z-index: 6;
+  cursor: pointer;
+  background: transparent;
+}
+
 .piano-art,
 .key-pressed-overlay {
   position: absolute;
