@@ -44,7 +44,24 @@ const noteSounds = {
   'A#': 'sounds/Bb_As.mp3',
 };
 
+const noteTulips = {
+  'C': 'images/C-tulip.png',
+  'D': 'images/D-tulip.png',
+  'E': 'images/E-tulip.png',
+  'F': 'images/F-tulip.png',
+  'G': 'images/G-tulip.png',
+  'A': 'images/A-tulip.png',
+  'B': 'images/B-tulip.png',
+  'C#': 'images/Cs-Db-tulip.png',
+  'D#': 'images/Ds-Eb-tulip.png',
+  'F#': 'images/Fs-Gb-tulip.png',
+  'G#': 'images/Gs-Ab-tulip.png',
+  'A#': 'images/As-Bb-tulip.png',
+};
+
 const activeTimeouts = {};
+const slotPositions = ['30%', '50%', '70%'];
+let growingTulips = [];
 
 const preloadedSounds = {};
 for (const [note, path] of Object.entries(noteSounds)) {
@@ -88,4 +105,32 @@ function pressKey(note, pos) {
 
   const flower = document.querySelector(`.flower[data-note="${note}"]`);
   if (flower) flower.classList.add('blooming');
+}
+
+function growTulip(note) {
+  if (growingTulips.length >= 3) {
+    return;
+  }
+
+  const tulip = document.createElement('img');
+  tulip.src = tulipImages[note];
+  tulip.classList.add('tulip', 'growing');
+  document.querySelector('.garden-area').appendChild(tulip);
+
+  const slotIndex = growingTulips.length;
+  tulip.style.left = slotPositions[slotIndex];
+
+  growingTulips.push({ note, element: tulip });
+}
+
+function clearGarden() {
+  growingTulips.forEach(entry => {
+    entry.element.classList.remove('growing');
+    entry.element.classList.add('wilting');
+  });
+
+  setTimeout(() => {
+    growingTulips.forEach(entry => entry.element.remove());
+    growingTulips = [];
+  }, 800);
 }
