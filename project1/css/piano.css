@@ -16,6 +16,12 @@ body {
   z-index: 10;
 }
 
+.garden-area {
+  position: relative;
+  width: 75%;
+  height: 400px;
+}
+
 .hitbox {
   position: absolute;
   cursor: pointer;
