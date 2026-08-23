@@ -60,7 +60,7 @@ const tulipImages = {
 };
 
 const activeTimeouts = {};
-const slotPositions = ['30%', '50%', '70%'];
+const slotPositions = ['15%', '45%', '75%'];
 let growingTulips = [];
 
 const preloadedSounds = {};
