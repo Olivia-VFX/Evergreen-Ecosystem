@@ -41,6 +41,10 @@ body {
   background: transparent;
 }
 
+.clear-garden-btn:hover {
+  filter: brightness(1.15);
+}
+
 .piano-art,
 .key-pressed-overlay {
   position: absolute;
