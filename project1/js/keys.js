@@ -29,7 +29,7 @@ const pressedImages = {
   'A#': '../images/As_Bb-pressed.png',
 };
 
-const activeTimeours = {};
+const activeTimeouts = {};
 
 for (const [note, pos] of Object.entries(keyPositions)) {
   const hitbox = document.createElement('div');
