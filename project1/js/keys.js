@@ -15,9 +15,9 @@ const keyPositions = {
 };
 
 const pressedImages = {
-  'C': 'Evergreen-Ecosystem/project1/images/C-pressed.png',
-  'D': 'Evergreen-Ecosystem/project1/images/D-pressed.png',
-  'E': 'Evergreen-Ecosystem/project1/images/E-pressed.png',
+  'C': 'images/C-pressed.png',
+  'D': 'images/D-pressed.png',
+  'E': 'images/E-pressed.png',
   'F': 'Evergreen-Ecosystem/project1/images/F-pressed.png',
   'G': 'Evergreen-Ecosystem/project1/images/G-pressed.png',
   'A': 'Evergreen-Ecosystem/project1/images/A-pressed.png',
