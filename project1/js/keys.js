@@ -52,7 +52,7 @@ const tulipImages = {
   'G': 'images/G-tulip.png',
   'A': 'images/A-tulip.png',
   'B': 'images/B-tulip.png',
-  'C#': 'images/Cs-Db-tulip.png',
+  'C#': 'images/Cs-Db-tulips.png',
   'D#': 'images/Ds-Eb-tulip.png',
   'F#': 'images/Fs-Gb-tulip.png',
   'G#': 'images/Gs-Ab-tulip.png',
