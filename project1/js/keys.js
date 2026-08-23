@@ -15,18 +15,18 @@ const keyPositions = {
 };
 
 const pressedImages = {
-  'C': '../images/C-pressed.png',
-  'D': '../images/D-pressed.png',
-  'E': '../images/E-pressed.png',
-  'F': '../images/F-pressed.png',
-  'G': '../images/G-pressed.png',
-  'A': '../images/A-pressed.png',
-  'B': '../images/B-pressed.png',
-  'C#': '../images/Cs_Db-pressed.png',
-  'D#': '../images/Ds_Eb-pressed.png',
-  'F#': '../images/Fs_Gb-pressed.png',
-  'G#': '../images/Gs_Ab-pressed.png',
-  'A#': '../images/As_Bb-pressed.png',
+  'C': 'Evergreen-Ecosystem/project1/images/C-pressed.png',
+  'D': 'Evergreen-Ecosystem/project1/images/D-pressed.png',
+  'E': 'Evergreen-Ecosystem/project1/images/E-pressed.png',
+  'F': 'Evergreen-Ecosystem/project1/images/F-pressed.png',
+  'G': 'Evergreen-Ecosystem/project1/images/G-pressed.png',
+  'A': 'Evergreen-Ecosystem/project1/images/A-pressed.png',
+  'B': 'Evergreen-Ecosystem/project1/images/B-pressed.png',
+  'C#': 'Evergreen-Ecosystem/project1/images/Cs_Db-pressed.png',
+  'D#': 'Evergreen-Ecosystem/project1/images/Ds_Eb-pressed.png',
+  'F#': 'Evergreen-Ecosystem/project1/images/Fs_Gb-pressed.png',
+  'G#': 'Evergreen-Ecosystem/project1/images/Gs_Ab-pressed.png',
+  'A#': 'Evergreen-Ecosystem/project1/images/As_Bb-pressed.png',
 };
 
 const activeTimeouts = {};
