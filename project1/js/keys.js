@@ -44,7 +44,7 @@ const noteSounds = {
   'A#': 'sounds/Bb_As.mp3',
 };
 
-const noteTulips = {
+const tulipImages = {
   'C': 'images/C-tulip.png',
   'D': 'images/D-tulip.png',
   'E': 'images/E-tulip.png',
