@@ -18,15 +18,15 @@ const pressedImages = {
   'C': 'images/C-pressed.png',
   'D': 'images/D-pressed.png',
   'E': 'images/E-pressed.png',
-  'F': 'Evergreen-Ecosystem/project1/images/F-pressed.png',
-  'G': 'Evergreen-Ecosystem/project1/images/G-pressed.png',
-  'A': 'Evergreen-Ecosystem/project1/images/A-pressed.png',
-  'B': 'Evergreen-Ecosystem/project1/images/B-pressed.png',
-  'C#': 'Evergreen-Ecosystem/project1/images/Cs_Db-pressed.png',
-  'D#': 'Evergreen-Ecosystem/project1/images/Ds_Eb-pressed.png',
-  'F#': 'Evergreen-Ecosystem/project1/images/Fs_Gb-pressed.png',
-  'G#': 'Evergreen-Ecosystem/project1/images/Gs_Ab-pressed.png',
-  'A#': 'Evergreen-Ecosystem/project1/images/As_Bb-pressed.png',
+  'F': 'images/F-pressed.png',
+  'G': 'images/G-pressed.png',
+  'A': 'images/A-pressed.png',
+  'B': 'images/B-pressed.png',
+  'C#': 'images/Cs_Db-pressed.png',
+  'D#': 'images/Ds_Eb-pressed.png',
+  'F#': 'images/Fs_Gb-pressed.png',
+  'G#': 'images/Gs_Ab-pressed.png',
+  'A#': 'images/As_Bb-pressed.png',
 };
 
 const activeTimeouts = {};
@@ -52,10 +52,7 @@ function pressKey(note, pos) {
   const overlay = document.createElement('img');
   overlay.src = pressedImages[note];
   overlay.classList.add('key-pressed-overlay');
-  overlay.style.left = pos.left;
-  overlay.style.top = pos.top;
-  overlay.style.width = pos.width;
-  overlay.style.height = pos.height;
+  
   document.querySelector('.piano-container').appendChild(overlay);
 
   const timerId = setTimeout(() => {
