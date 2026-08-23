@@ -103,8 +103,7 @@ function pressKey(note, pos) {
 
   activeTimeouts[note] = { timerId, overlay };
 
-  const flower = document.querySelector(`.flower[data-note="${note}"]`);
-  if (flower) flower.classList.add('blooming');
+  growTulip(note);
 }
 
 function growTulip(note) {
