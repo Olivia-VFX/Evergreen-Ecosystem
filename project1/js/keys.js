@@ -46,7 +46,7 @@ for (const [note, pos] of Object.entries(keyPositions)) {
 function pressKey(note, pos) {
   if (activeTimeouts[note]) {
     clearTimeout(activeTimeouts[note].timerId);
-    activeTiemouts[note].overlay.remove();
+    activeTimeouts[note].overlay.remove();
   }
 
   const overlay = document.createElement('img');
