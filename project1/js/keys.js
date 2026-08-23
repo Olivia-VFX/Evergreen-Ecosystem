@@ -81,6 +81,8 @@ for (const [note, pos] of Object.entries(keyPositions)) {
   document.querySelector('.piano-container').appendChild(hitbox);
 }
 
+document.querySelector('.clear-garden-btn').addEventListener('click', clearGarden);
+
 function pressKey(note, pos) {
   if (activeTimeouts[note]) {
     clearTimeout(activeTimeouts[note].timerId);
