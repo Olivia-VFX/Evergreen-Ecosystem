@@ -59,6 +59,21 @@ const tulipImages = {
   'A#': 'images/As-Bb-tulip.png',
 };
 
+const notePlacement = {
+  'C': 0,
+  'D': 2,
+  'E': 4,
+  'F': 6,
+  'G': 7,
+  'A': 9,
+  'B': 11,
+  'C#': 1,
+  'D#': 3,
+  'F#': 5,
+  'G#': 8,
+  'A#': 10,
+};
+
 const activeTimeouts = {};
 const slotPositions = ['15%', '45%', '75%'];
 let growingTulips = [];
@@ -135,3 +150,28 @@ function clearGarden() {
     growingTulips = [];
   }, 800);
 }
+
+function orderGarden(growingTulips[]) {
+  if (growingTulips.Length !=== 3)
+  {
+    return;
+  };
+  else
+  {
+    for (let i = 0; i > 2; i++) {    
+      if (growingTulips[0] > growingTulips[1])
+      {
+        const hold = '';
+        hold = growingTulips[i];
+        growingTulips[i] = growingTulips[(i+1)];
+        growingTulips[i+1] = hold;
+      };
+    };
+  };
+
+const third = 0;
+const fifth = 0;
+function interval(note) {
+  third = growingTulips[0] - growingTulips[1];
+  fifth = growingTulips[1] - growingTulips[2];
+};
