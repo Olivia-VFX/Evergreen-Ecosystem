@@ -137,6 +137,11 @@ function growTulip(note) {
   tulip.style.left = slotPositions[slotIndex];
 
   growingTulips.push({ note, element: tulip });
+
+  if (growingTulips.length === 3) {
+    const quality = chordNature(growingTulips);
+    const root = getRootNote(growingTulikps);
+    onChordComplete(root, quality);
 }
 
 function clearGarden() {
@@ -152,26 +157,27 @@ function clearGarden() {
 }
 
 function orderGarden(growingTulips[]) {
-  if (growingTulips.Length !=== 3)
+  if (growingTulips.length !== 3)
   {
-    return;
-  };
-  else
-  {
-    for (let i = 0; i > 2; i++) {    
-      if (growingTulips[0] > growingTulips[1])
-      {
-        const hold = '';
-        hold = growingTulips[i];
-        growingTulips[i] = growingTulips[(i+1)];
-        growingTulips[i+1] = hold;
-      };
-    };
+    return null;
+  }
+  return [...tulips].sort(
+    (a, b) => notePlacement[a.note] - notePlacement[b.note]
+  );
   };
 
-const third = 0;
-const fifth = 0;
-function interval(note) {
-  third = growingTulips[0] - growingTulips[1];
-  fifth = growingTulips[1] - growingTulips[2];
+function chordNature(tulips) {
+  const sorted = orderGarden(tulips);
+  if (!sorted) return null;
+
+  const [root, mid, top] = sorted.map(t => notePlacement[t.note]);
+
+  const third = (mid - root + 12) % 12;
+  const fifth = (top - root + 12) % 12;
+
+  if (third === 4 && fifth === 7) return 'major';
+  if (third === 3 && fifth === 7) return 'minor';
+  if (third === 3 && fifth === 6) return 'diminished';
+  if (third === 4 && fifth === 8) return 'augmented';
+  return null;
 };
