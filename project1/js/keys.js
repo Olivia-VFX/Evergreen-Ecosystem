@@ -170,7 +170,7 @@ function clearGarden() {
   }, 800);
 }
 
-function orderGarden(growingTulips[]) {
+function orderGarden(growingTulips) {
   if (growingTulips.length !== 3)
   {
     return null;
@@ -211,7 +211,7 @@ function onChordComplete(root, quality) {
   spriteImg.src = spiritParts.open;
   bubbleImg.src = spiritParts.speechBox;
 
-  const chordName = `${root} ${quality.charAt(0).toUpperCase() + quality.slice(1)`;
+  const chordName = `${root} ${quality.charAt(0).toUpperCase()} + quality.slice(1)`;
   bubbleText.textContent = `${chordName} - ${chordExplanations[quality]}`;
 
   clearTimeout(sprite.hideTimer);
@@ -220,7 +220,7 @@ function onChordComplete(root, quality) {
 
   sprite.hideTimer = setTimeout(() => {
     spriteImg.src = spiritParts.closed;
-    sprite.classList.remoce('sprite-appear');
+    sprite.classList.remove('sprite-appear');
     sprite.classList.add('sprite-hidden');
   }, 4000;
 }
