@@ -94,8 +94,8 @@ body {
 
 .chord-sprite {
   position: fixed;
-  left: 5%;
-  bottom: 20%;
+  left: 2%;
+  bottom: 5%;
   z-index: 12;
   display: flex;
   align-items: flex-end;
