@@ -74,6 +74,12 @@ const notePlacement = {
   'A#': 10,
 };
 
+const spiritParts = {
+  'open': 'images/naturesprite_open.png',
+  'closed': 'images/naturesprite_closed.png',
+  'speechBox': 'images/speech_box.png',
+};
+
 const activeTimeouts = {};
 const slotPositions = ['15%', '45%', '75%'];
 let growingTulips = [];
