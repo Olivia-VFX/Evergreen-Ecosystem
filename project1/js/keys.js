@@ -80,6 +80,13 @@ const spiritParts = {
   'speechBox': 'images/speech_box.png',
 };
 
+const chordExplanations = {
+  major: 'sounds bright and happy, like sunshine on a warm spring day',
+  minor: 'sounds a little sad and soft, like when you lose something you love',
+  diminished: 'sounds tense and mysterious, like something is about to happen',
+  augmented: 'sounds strange and dreamlike, like a weird dream',
+};
+
 const activeTimeouts = {};
 const slotPositions = ['15%', '45%', '75%'];
 let growingTulips = [];
@@ -146,8 +153,9 @@ function growTulip(note) {
 
   if (growingTulips.length === 3) {
     const quality = chordNature(growingTulips);
-    const root = getRootNote(growingTulikps);
-    onChordComplete(root, quality);
+    const root = getRootNote(growingTulips);
+    if (quality) onChordComplete(root, quality);
+}
 }
 
 function clearGarden() {
@@ -187,3 +195,32 @@ function chordNature(tulips) {
   if (third === 4 && fifth === 8) return 'augmented';
   return null;
 };
+
+function getRootNote(tulips) {
+  const sorted = orderGarden(tulips);
+  if (!sorted) return null;
+  return sorted[0].note;
+}
+
+function onChordComplete(root, quality) {
+  const sprite = document.querySelector('.chord-sprite');
+  const spriteImg = document.querySelector('.sprite-art');
+  const bubbleImg = document.querySelector('.chord-speech-bubble');
+  const bubbleText = document.querySelector('.chord-speech-text');
+
+  spriteImg.src = spiritParts.open;
+  bubbleImg.src = spiritParts.speechBox;
+
+  const chordName = `${root} ${quality.charAt(0).toUpperCase() + quality.slice(1)`;
+  bubbleText.textContent = `${chordName} - ${chordExplanations[quality]}`;
+
+  clearTimeout(sprite.hideTimer);
+  sprite.classList.remove('sprite-hidden');
+  sprite.classList.add('sprite-appear');
+
+  sprite.hideTimer = setTimeout(() => {
+    spriteImg.src = spiritParts.closed;
+    sprite.classList.remoce('sprite-appear');
+    sprite.classList.add('sprite-hidden');
+  }, 4000;
+}
