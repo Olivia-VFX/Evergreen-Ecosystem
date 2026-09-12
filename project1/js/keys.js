@@ -211,7 +211,7 @@ function onChordComplete(root, quality) {
   spriteImg.src = spiritParts.open;
   bubbleImg.src = spiritParts.speechBox;
 
-  const chordName = `${root} ${quality.charAt(0).toUpperCase()} + quality.slice(1)`;
+  const chordName = `${root} ${quality.charAt(0).toUpperCase() + quality.slice(1)}`;
   bubbleText.textContent = `${chordName} - ${chordExplanations[quality]}`;
 
   clearTimeout(sprite.hideTimer);
