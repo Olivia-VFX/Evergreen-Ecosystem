@@ -222,5 +222,5 @@ function onChordComplete(root, quality) {
     spriteImg.src = spiritParts.closed;
     sprite.classList.remove('sprite-appear');
     sprite.classList.add('sprite-hidden');
-  }, 4000);
+  }, 15000);
 }
