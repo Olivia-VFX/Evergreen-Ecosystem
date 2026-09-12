@@ -204,6 +204,7 @@ function getRootNote(growingTulips) {
 
 function onChordComplete(root, quality) {
   const sprite = document.querySelector('.chord-sprite');
+  const speechContainer = document.querySelector('.speech-container');
   const spriteImg = document.querySelector('.sprite-art');
   const bubbleImg = document.querySelector('.chord-speech-bubble');
   const bubbleText = document.querySelector('.chord-speech-text');
@@ -217,10 +218,14 @@ function onChordComplete(root, quality) {
   clearTimeout(sprite.hideTimer);
   sprite.classList.remove('sprite-hidden');
   sprite.classList.add('sprite-appear');
+  speechContainer.classList.remove('sprite-hidden');
+  speechContainer.classList.add('sprite-appear');
 
   sprite.hideTimer = setTimeout(() => {
     spriteImg.src = spiritParts.closed;
     sprite.classList.remove('sprite-appear');
     sprite.classList.add('sprite-hidden');
+    speechContainer.classList.remove('sprite-hidden');
+    speechContainer.classList.add('sprite-appear');
   }, 15000);
 }
