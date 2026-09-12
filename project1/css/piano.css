@@ -96,7 +96,7 @@ body {
   position: fixed;
   left: 5%;
   bottom: 20%;
-  z-index: 8;
+  z-index: 12;
   display: flex;
   align-items: flex-end;
   gap: 8px;
@@ -127,7 +127,7 @@ body {
 
 .chord-speech-bubble {
   display: block;
-  width: 200px;
+  width: 500px;
 }
 
 .chord-speech-text {
