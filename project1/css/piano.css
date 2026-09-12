@@ -95,7 +95,7 @@ body {
 .chord-sprite {
   position: fixed;
   left: 2%;
-  bottom: 5%;
+  bottom: -5%;
   z-index: 12;
   display: flex;
   align-items: flex-end;
@@ -127,7 +127,7 @@ body {
 
 .chord-speech-bubble {
   display: block;
-  width: 500px;
+  width: 75%;
 }
 
 .chord-speech-text {
