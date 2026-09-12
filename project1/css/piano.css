@@ -130,6 +130,13 @@ body {
   width: 75%;
 }
 
+.speech-container {
+  position: fixed;
+  left: 12%;
+  bottom: 18%;
+  z-index: 12;
+}
+
 .chord-speech-text {
   position: absolute;
   inset: 0;
