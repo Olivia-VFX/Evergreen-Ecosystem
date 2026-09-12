@@ -175,13 +175,13 @@ function orderGarden(growingTulips) {
   {
     return null;
   }
-  return [...tulips].sort(
+  return [...growingTulips].sort(
     (a, b) => notePlacement[a.note] - notePlacement[b.note]
   );
   };
 
-function chordNature(tulips) {
-  const sorted = orderGarden(tulips);
+function chordNature(growingTulips) {
+  const sorted = orderGarden(growingTulips);
   if (!sorted) return null;
 
   const [root, mid, top] = sorted.map(t => notePlacement[t.note]);
@@ -196,8 +196,8 @@ function chordNature(tulips) {
   return null;
 };
 
-function getRootNote(tulips) {
-  const sorted = orderGarden(tulips);
+function getRootNote(growingTulips) {
+  const sorted = orderGarden(growingTulips);
   if (!sorted) return null;
   return sorted[0].note;
 }
