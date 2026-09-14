@@ -127,14 +127,14 @@ body {
 
 .chord-speech-bubble {
   display: block;
-  width:10 0%;
+  width: 100%;
 }
 
 .speech-container {
   position: fixed;
   left: 12%;
   bottom: 15%;
-  width: 55%
+  width: 55%;
   z-index: 15;
 }
 
