@@ -149,3 +149,24 @@ body {
   text-align: center;
   color: #3B2418;
 }
+
+.journal-panel {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 400px;
+  height: 75vh;
+  background-image: url('../images/journal.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px 20px 20px 60px;
+  overflow-y: auto;
+  z-index: 25;
+
+  transform: translateX(calc(100%-70px));
+  transition: transform 0.4s ease-out;
+}
+
+.journal-panel.journal-open {
+  transform: translateX(0);
+}
