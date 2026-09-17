@@ -1,3 +1,5 @@
+// note info
+
 const keyPositions = {
   'C':  { left: '12.8%', width: '10.6%', top: '21%', height: '79%' },
   'D':  { left: '23.4%', width: '10.6%', top: '21%', height: '79%' },
@@ -74,11 +76,15 @@ const notePlacement = {
   'A#': 10,
 };
 
+// spirit stuff
+
 const spiritParts = {
   'open': 'images/naturesprite_open.png',
   'closed': 'images/naturesprite_closed.png',
   'speechBox': 'images/speech_box.png',
 };
+
+// chord info and explanations
 
 const chordExplanations = {
   major: 'sounds bright and happy, like sunshine on a warm spring day',
@@ -86,6 +92,38 @@ const chordExplanations = {
   diminished: 'sounds tense and mysterious, like something is about to happen',
   augmented: 'sounds strange and dreamlike, like a weird dream',
 };
+
+const chordTypeInfo = {
+  major: {
+    formula: 'The root note (the lowest note/note furthest to the left on the keyboard), then you move 4 half-steps to the right to the 3rd note, and then another 3 half-steps to the 5th',
+    builtinExplanation: 'This chord sounds bright and happy, like sunshine on a warm day',
+    userDefinition:'',
+  },
+  minor: {
+    formula: 'The root note (the lowest note which is furthest to the left on the keyboard), then you more 3 half-steps to the right to the 3rd, and then another 4 half-steps to the 5th',
+    builtinExplanation: 'This chord sounds sad and soft, like when you lose something you love',
+    userDefinition: '',
+  },
+  diminished: {
+    formula: 'The root note (the lowest note on the keyboard - the one furthest to the left), then you move 3 half-steps to the right to the 3rd and then another 3 half-steps to the 5th',
+    builtinExplanation: 'This chord sounds tense and mysterious, like something is about to happen',
+    userDefinition: '',
+  },
+  augmented: {
+    formula: 'The root note (the note on the keyboard which is furthest to the left - the lowest note), then you move 4 half-steps to the right to the 3rd, and then another 4 half-steps to the 5th',
+    builtinExplanation: 'This chord sounds strange and dreamlike, like a weird dream',
+    userDefinition: '',
+  },
+};
+
+const discoveredChords = {
+  major: [],
+  minor: [],
+  diminished: [],
+  augmented: [],
+};
+
+// set up stuff
 
 const activeTimeouts = {};
 const slotPositions = ['15%', '45%', '75%'];
@@ -96,6 +134,8 @@ for (const [note, path] of Object.entries(noteSounds)) {
   preloadedSounds[note] = new Audio(path);
   preloadedSounds[note].load();
 }
+
+// set up piano
 
 for (const [note, pos] of Object.entries(keyPositions)) {
   const hitbox = document.createElement('div');
@@ -136,6 +176,23 @@ function pressKey(note, pos) {
   growTulip(note);
 }
 
+// journal set up - and saves across visits
+
+function saveJournal() {
+  localStorage.setItem('discoveredChords', JSON.stringify(discoveredChords));
+  localStorage.setItem('chordTypeInfo', JSON.stringify(chordTypeInfo));
+}
+
+function loadJournal() {
+  const savedChords = localStorage.getItem('discoveredChords');
+  const savedInfo = localStorage.getItem('chordTypeInfo');
+  if (savedChords) Object.assign(discoveredChords, JSON.parse(savedChords));
+  if (savedInfo) Object.assign(chordTypeInfo, JSON.parse(savedInfo));
+}
+loadJournal();
+
+// when key pressed, flower grows
+
 function growTulip(note) {
   if (growingTulips.length >= 3) {
     return;
@@ -158,6 +215,8 @@ function growTulip(note) {
 }
 }
 
+// clear button
+
 function clearGarden() {
   growingTulips.forEach(entry => {
     entry.element.classList.remove('growing');
@@ -170,6 +229,8 @@ function clearGarden() {
   }, 800);
 }
 
+// order garden for chord id
+
 function orderGarden(growingTulips) {
   if (growingTulips.length !== 3)
   {
@@ -178,7 +239,9 @@ function orderGarden(growingTulips) {
   return [...growingTulips].sort(
     (a, b) => notePlacement[a.note] - notePlacement[b.note]
   );
-  };
+};
+
+// chord nature
 
 function chordNature(growingTulips) {
   const sorted = orderGarden(growingTulips);
@@ -196,11 +259,15 @@ function chordNature(growingTulips) {
   return null;
 };
 
+// get root note for chord id
+
 function getRootNote(growingTulips) {
   const sorted = orderGarden(growingTulips);
   if (!sorted) return null;
   return sorted[0].note;
 }
+
+// if chord is id'd then explanation 
 
 function onChordComplete(root, quality) {
   const sprite = document.querySelector('.chord-sprite');
@@ -228,4 +295,13 @@ function onChordComplete(root, quality) {
     speechContainer.classList.remove('sprite-appear');
     speechContainer.classList.add('sprite-hidden');
   }, 15000);
+
+  const notes = growingTulips.map(t => t.note);
+  const alreadyLogged = discoveredChords[quality].some(
+    entry => entry.root === root && JSON.stringify(entry.notes.sort()) === JSON.stringify([...notes].sort())
+    );
+  if (!alreadyLogged) {
+    discoveredChords[quality].push({root, notes});
+    saveJournal();
+  }
 }
