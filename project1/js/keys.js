@@ -225,9 +225,7 @@ function onChordComplete(root, quality) {
     spriteImg.src = spiritParts.closed;
     sprite.classList.remove('sprite-appear');
     sprite.classList.add('sprite-hidden');
-    bubbleImg.classList.remove('speech-appear');
-    bubbleImg.classList.add('speech-hidden');
-    speechContainer.classList.remove('sprite-hidden');
-    speechContainer.classList.add('sprite-appear');
+    speechContainer.classList.remove('sprite-appear');
+    speechContainer.classList.add('sprite-hidden');
   }, 15000);
 }
