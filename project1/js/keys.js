@@ -305,3 +305,51 @@ function onChordComplete(root, quality) {
     saveJournal();
   }
 }
+
+// journal
+
+document.querySelector('.journal-panel').addEventListener('click', (e) => {
+  const panel = documehnt.querySelector('.journal-panel');
+  if (!panel.classList.contains('journal-open')) {
+    panel.classList.add('journal-open');
+  }
+});
+
+document.querySelector('.journal-close').addEventListener('click', (e) => {
+  e.stopPropagation();
+  document.querySelector('.journal-panel').classList.remove('journal-open');
+});
+
+function openJournal() {
+  const container = document.querySelector('.journal-sections');
+  container.innerHTML = '';
+
+  for (const [type, info] of Object.entries(chordTypeInfo)) {
+    const section = document.createElement('div');
+    section.classList.add('journal-section');
+
+    const found = discoveredChords[type];
+    const chordList = found.length
+    ? found.map(f => `${f.root} ${type} (${f.notes.join(', ')}`).join('<br>')
+      : '<em> Not discovered yet </em>';
+
+    section.innerHTML = `
+    <h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>
+    <p class="journal-formula">${info.formula}</p>
+    <p class="journal-found">${chordList}</p>
+    <textarea class="journal-user-def" data-type="${type}" placeholder="Write your own definition!">${info.userDefinition}</textarea>
+    `;
+    container.appendChild(section);
+  }
+
+  container.querySelectorAll('.journal-user-def').forEach(area => {
+    area.addEventListener('input', (e) => {
+      const type = e.target.dataset.type;
+      chordTypeInfo[type].userDefinition = e.target.value;
+      saveJournal();
+    });
+  });
+
+  document.querySelector('.journal-panel').classList.remove('journal-hidden');
+}
+
