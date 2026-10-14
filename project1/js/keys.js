@@ -310,7 +310,7 @@ function onChordComplete(root, quality) {
 // journal
 
 document.querySelector('.journal-panel').addEventListener('click', (e) => {
-  const panel = documehnt.querySelector('.journal-panel');
+  const panel = document.querySelector('.journal-panel');
   if (!panel.classList.contains('journal-open')) {
     panel.classList.add('journal-open');
   }
