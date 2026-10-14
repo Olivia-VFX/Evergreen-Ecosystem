@@ -350,7 +350,7 @@ function renderJournal() {
     if (journal.classList.contains('journal-open')) closeJournal();
     else openJournal();
   });
-  document.querySelector('.journal-close').addEventListener('click'), closeJournal);
+  document.querySelector('.journal-close').addEventListener('click', closeJournal);
 }
 
 function openJournal() {
