@@ -85,6 +85,7 @@ const spiritParts = {
 };
 
 // chord info and explanations
+const journal = document.querySelector('.journal-panel');
 
 const chordExplanations = {
   major: 'sounds bright and happy, like sunshine on a warm spring day',
@@ -315,12 +316,7 @@ document.querySelector('.journal-panel').addEventListener('click', (e) => {
   }
 });
 
-document.querySelector('.journal-close').addEventListener('click', (e) => {
-  e.stopPropagation();
-  document.querySelector('.journal-panel').classList.remove('journal-open');
-});
-
-function openJournal() {
+function renderJournal() {
   const container = document.querySelector('.journal-sections');
   container.innerHTML = '';
 
@@ -350,6 +346,22 @@ function openJournal() {
     });
   });
 
-  document.querySelector('.journal-panel').classList.remove('journal-hidden');
+  document.querySelector('.journal-tab-hit').addEventListener('click', () => {
+    if (journal.classList.contains('journal-open')) closeJournal();
+    else openJournal();
+  });
+  document.querySelector('.journal-close').addEventListener('click'), closeJournal);
 }
+
+function openJournal() {
+  renderJournal();
+  journal.classList.add('journal-opem');
+}
+
+function closeJournal() {
+  journal.classList.remove('journal-open');
+}
+
+
+
 
