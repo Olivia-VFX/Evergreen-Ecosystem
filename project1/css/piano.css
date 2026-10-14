@@ -152,21 +152,55 @@ body {
 
 .journal-panel {
   position: fixed;
-  top: 10%;
   right: 0;
-  width: 400px;
-  height: 75vh;
-  background-image: url('../images/journal.png');
-  background-size: cover;
-  background-position: center;
-  padding: 20px 20px 20px 60px;
-  overflow-y: auto;
+  top: 6vh;
+  width: min(32vw, calc(85vh* 0.995));
+  aspect-ratio: 488 / 511;
+  background: url('../images/journal.png') center / 100% 100% no-repeat;
   z-index: 25;
 
-  transform: translateX(calc(100%-70px));
+  transform: translateX(90%);
   transition: transform 0.4s ease-out;
 }
 
 .journal-panel.journal-open {
   transform: translateX(0);
+}
+
+.journal-tab-hit {
+  position: absolute;
+  left: 1.5%;
+  top: 16%;
+  width: 8.5%;
+  height: 19%;
+  cursor: pointer;
+}
+
+.journal-content {
+  position: absolute;
+  top: 7%;
+  bottom: 7%;
+  left: 14%;
+  right: 7%
+  overflow-y: auto;
+  color: #3B2418;
+}
+
+.journal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #3B2418;
+}
+
+.journal-user-def {
+  width: 100%;
+  min-height: 60px;
+  background: rgba(245, 243, 234, 0.55);
+  border: 1px solid regba(59, 36, 24, 0.4);
+  font-family: inherit;
 }
