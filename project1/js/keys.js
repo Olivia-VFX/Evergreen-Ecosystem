@@ -236,6 +236,25 @@ function clearGarden() {
   }, 800);
 }
 
+// settings btn
+
+document.querySelector('.settings-btn').addEventListener('click', () => {
+  document.querySelector('.title-screen').classList.remove('title-hidden');
+  document.getElementById('play-btn').focus();
+});
+
+document.getElementById('play-btn').addEventListener('click', () => {
+  const btn = document.getElementById('play-btn');
+  document.querySelector('.title-screen').classList.add('title-hidden');
+  btn.textContent = 'Resume';
+});
+
+document.getElementById('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelector('.title-screen').classList.add('title-hidden');
+  }
+});
+
 // order garden for chord id
 
 function orderGarden(growingTulips) {
