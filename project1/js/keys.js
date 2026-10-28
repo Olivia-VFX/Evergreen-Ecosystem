@@ -76,6 +76,12 @@ const notePlacement = {
   'A#': 10,
 };
 
+// title screen
+
+document.getElementById('play-btn').addEventListener('click', () => {
+  document.querySelector('.title-screen').classList.add('title-hidden');
+});
+
 // spirit stuff
 
 const spiritParts = {
