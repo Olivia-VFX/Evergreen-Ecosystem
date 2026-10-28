@@ -326,7 +326,7 @@ function renderJournal() {
 
     const found = discoveredChords[type];
     const chordList = found.length
-    ? found.map(f => `${f.root} ${type} (${f.notes.join(', ')}`).join('<br>')
+    ? found.map(f => `${f.root} ${type} (${f.notes.join(', ')})`).join('<br>')
       : '<em> Not discovered yet </em>';
 
     section.innerHTML = `
@@ -352,6 +352,8 @@ function renderJournal() {
   });
   document.querySelector('.journal-close').addEventListener('click', closeJournal);
 }
+
+// close/open journal
 
 document.querySelector('.journal-tab-hit').addEventListener('click', () => {
   if (journal.classList.contains('journal-open')) closeJournal();
