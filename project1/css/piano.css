@@ -122,6 +122,29 @@ body {
   filter: brightness(1.15);
 }
 
+.settings-btn {
+  position: fixed;
+  left: 2%;
+  top: 3%;
+  width: 5vw;
+  min-width: 40px;
+  z-index: 30;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.settings-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.settings-btn:hover {
+  filter: brightness(1.15);
+}
+
 .piano-art,
 .key-pressed-overlay {
   position: absolute;
