@@ -1,3 +1,8 @@
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
   background-image: url('../images/background.png');
   background-size: cover;
@@ -189,6 +194,7 @@ body {
   left: 14%;
   right: 7%
   overflow-y: auto;
+  overscroll-behaviour: contain;
   color: #3B2418;
 }
 
