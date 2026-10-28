@@ -353,6 +353,16 @@ function renderJournal() {
   document.querySelector('.journal-close').addEventListener('click', closeJournal);
 }
 
+document.querySelector('.journal-tab-hit').addEventListener('click', () => {
+  if (journal.classList.contains('journal-open')) closeJournal();
+  else openJournal();
+});
+
+document.querySelector('.journal-close').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeJournal();
+});
+
 function openJournal() {
   renderJournal();
   journal.classList.add('journal-opem');
