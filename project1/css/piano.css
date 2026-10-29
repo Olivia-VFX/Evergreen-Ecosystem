@@ -282,7 +282,7 @@ body {
   top: 6%;
   bottom: 4%;
   left: 14%;
-  right: 7%;
+  right: 0;
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
@@ -307,7 +307,7 @@ body {
 .journal-user-def {
   width: 100%;
   min-height: 60px;
-  background: rgba(245, 243, 234, 0.55);
-  border: 1px solid rgba(59, 36, 24, 0.4);
+  background: rgba(196, 176, 148, 0.18);
+  border: 1px solid rgba(59, 36, 24, 0.25);
   font-family: "Just Me Again Down Here", cursive;
 }
