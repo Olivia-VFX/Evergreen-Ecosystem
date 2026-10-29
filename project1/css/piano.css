@@ -227,7 +227,7 @@ body {
   position: fixed;
   left: 12%;
   bottom: 5%;
-  width: 40%;
+  width: 45%;
   z-index: 15;
 }
 
@@ -239,7 +239,7 @@ body {
   justify-content: center;
   padding: 12px;
   font-family: "Caveat Brush", cursive;
-  font-size: 20px;
+  font-size: 19px;
   text-align: center;
   color: #3B2418;
 }
