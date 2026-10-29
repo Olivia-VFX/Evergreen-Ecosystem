@@ -42,7 +42,7 @@ body {
 }
 
 .title-main {
-  font-family: 'Caveat', cursive;
+  font-family: "Parisienne", cursive;
   font-size: clamp(32px, 6vw, 72px);
   margin: 0;
   line-height: 1;
