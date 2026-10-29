@@ -76,6 +76,114 @@ const notePlacement = {
   'A#': 10,
 };
 
+// tutorial set up
+
+const tutorialSteps = [
+  { target: '.piano-container', side: 'above', title: 'The piano',
+   text: 'Click a key to play a note, the black keys are sharps and flats. Every key grows a matching tulip.' },
+  { target: '.garden-area', side: 'right', title: 'The tulips',
+   text: 'Each tulip is one note, the garden can hold three at a time. Play three notes that fit together and I will tell you the chord they make!' },
+  { target: '.clear-garden-btn', side: 'left', title: 'Clear garden',
+   text: 'Garden full? Click the sign and the tulips wilt, ready for a new chord.' },
+  { target: '.journal-tab-hit', side: 'left', title: 'The journal',
+   text: 'Every chord you discover is saved here. Click the J to slide it open and write your own definitons.' },
+  ];
+
+const tutorial = document.querySelector('.tutorial');
+const tutSpot = document.querySelector('.tutorial-spotlight');
+const tutCard = document.querySelector('.tutorial-card');
+const tutBack = document.querySelector('.tutorial-back');
+const tutNext = document.querySelector('.tutorial-next');
+let tutorialIndex = 0;
+
+// tutorial 
+
+function showTutorialStep(i) {
+  tutorialIndex = i;
+  const step = tutorialSteps[i];
+  const r = document.querySelector(Step.target).getBoundingClientRect();
+  const pad = 8, gap = 24, margin = 12;
+
+  Object.assign(tutSpot.style, {
+    left: (r.left - pad) + 'px', top: (r.top - pad) + 'px',
+    width: (r.width + pad * 2) + 'px', height: (r.height + pad * 2) + 'px',
+  });
+
+  document.querySelector('.tutorial-step-count').textContent = `Step ${i + 1} of ${tutorialSteps.length}`;
+  document.querySelector('.tutorial-title').textContent = step.title;
+  document.querySelector('.tutorial-text').textContent = step.text;
+  tutBack.disabled = (i === 0);
+  tutNext.textContent = ( i === tutorialSteps.length - 1) ? 'Done' : 'Next';
+
+  tutCard.style.width = '';
+  let cw = tutCard.offsetWidth;
+  if (step.side === 'left' || step.side === 'right') {
+    const room = (step.side === 'right')
+    ? window.innerWidth - r.right - pad - gap - margin
+      : r.left - pad - gap - margin;
+    if (room < vw) { 
+      tutCard.style.width = Math.max(room, 240) + 'px'; 
+      cw = tutCard.offsetWdith;
+    }
+
+    const ch = tutCard.offsetHeight;
+    let left, top;
+    if (step.side === 'above') {
+      left = r.left + r.width / 2 - cw / 2;
+      top = r.top - pad - gap - ch;
+    } else if (step.side === 'below') {
+      left = r.left + r.width / 2 - cw / 2;
+      top = r.bottom + pad + gap;
+    } else if (step.side === 'left') {
+      left = r.left - pad - gap - cw;
+      top = r.top + r.height / 2 - ch / 2;
+    } else {
+      left = r.right + gap + pad;
+      top = r.top + r.height / 2 - ch / 2;
+    }
+
+    left = Math.max(margin, Math.min(left, window.innerWidth - cw - margin));
+    top = Math. mac(margin, Math.min(top, window.innerHeigh - ch - margin));
+    tutCard.style.left = left + 'px';
+    tutCard.style.top = top + 'px';
+    tutCard.dataset.side = step.side;
+
+    const vertical = (step.side === 'above' || step.side === 'below');
+    const arrow = vertical ? (r.left + r.width / 2 - left) : (r.top + r.height / 2 - top);
+    const max = (vertical ? cw : ch) - 24;
+    tutCard.style.setProperty('--arrow', Math.max(24, Math.min(arrow, max)) + 'px');
+  }
+
+  function startTutorial() {
+    document.querySelector('.title-screen').classList.add('title-hidden');
+    document.querySelector('.journal-panel').classList.remove('journal-open');
+    tutorial.classList.remove('tutorial-hidden');
+    tutorial.classList.add('no-anim');
+    showTutorialStep(0);
+    void tutCard.offsetWidth;
+    tutorial.classList.remove('no-anim');
+  }
+
+  function closeTutorial() {
+    tutorial.classList.add('tutorial-hidden');
+    document.querySelector('.title-screen').classList.remove('title-hidden');
+  }
+
+  document.getElementById('tutorial-btn').addEventListener('click', startTutorial);
+  tutBack.addEventListener('click', () => showTutorialStep(tutorialIndex - 1));
+  tutNext.addEventListener('click', () => {
+    if (tutorialIndex === tutorialSteps.length - 1) closeTutorial();
+    else showTutorialStep(tutorialIndex + 1);
+  });
+
+  document.querySelector('.tutorial-skip').addEventListener('click', closeTutorial);
+  document.querySelector('.tutorial-rockie').addEventListener('load', () => {
+    if (!tutorial.classList.contains('tutorial-hidden')) showTutorialStep(tutorialIndex);
+  });
+  window.addEventListener('resize', () => {
+    if (!tutorial.classList.contains('tutorial-hidden')) showTutorialStep(tutorialIndex):
+  });
+
 // title screen
 
 document.getElementById('play-btn').addEventListener('click', () => {
