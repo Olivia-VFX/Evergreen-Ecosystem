@@ -252,8 +252,9 @@ body {
   width: min(32vw, 520px);
   background: url('../images/journal-mid (1).png') 0 0 / 100% auto repeat-y;
   z-index: 25;
+  overflow: hidden;
   transform: translateX(90%);
-  transitionL: transfrom 0.4s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 .journal-panel.journal-open {
@@ -281,9 +282,11 @@ body {
   top: 6%;
   bottom: 4%;
   left: 14%;
-  right: 7%
+  right: 7%;
   overflow-y: auto;
-  overscroll-behaviour: contain;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   font-family: "Caveat Brush", cursive;
   color: #3B2418;
 }
@@ -305,6 +308,6 @@ body {
   width: 100%;
   min-height: 60px;
   background: rgba(245, 243, 234, 0.55);
-  border: 1px solid regba(59, 36, 24, 0.4);
+  border: 1px solid rgba(59, 36, 24, 0.4);
   font-family: "Just Me Again Down Here", cursive;
 }
