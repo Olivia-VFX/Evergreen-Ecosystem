@@ -216,18 +216,21 @@ body {
 
 .chord-speech-wrapper {
   position: relative;
+  width: 100%;
 }
 
 .chord-speech-bubble {
   display: block;
-  width: 80%;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .speech-container {
   position: fixed;
   left: 12%;
   bottom: 5%;
-  width: 45%;
+  width: min(46vw, 520px);
   z-index: 15;
 }
 
@@ -237,11 +240,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  padding: clamp(10px, 1.8vw, 18px);
   font-family: "Caveat Brush", cursive;
-  font-size: 19px;
+  font-size: clamp(14px, 1.6vw, 19px);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   text-align: center;
   color: #3B2418;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .journal-panel {
