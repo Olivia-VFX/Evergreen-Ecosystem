@@ -101,7 +101,7 @@ let tutorialIndex = 0;
 function showTutorialStep(i) {
   tutorialIndex = i;
   const step = tutorialSteps[i];
-  const r = document.querySelector(Step.target).getBoundingClientRect();
+  const r = document.querySelector(step.target).getBoundingClientRect();
   const pad = 8, gap = 24, margin = 12;
 
   Object.assign(tutSpot.style, {
@@ -121,7 +121,7 @@ function showTutorialStep(i) {
     const room = (step.side === 'right')
     ? window.innerWidth - r.right - pad - gap - margin
       : r.left - pad - gap - margin;
-    if (room < vw) { 
+    if (room < cw) { 
       tutCard.style.width = Math.max(room, 240) + 'px'; 
       cw = tutCard.offsetWdith;
     }
@@ -143,7 +143,7 @@ function showTutorialStep(i) {
     }
 
     left = Math.max(margin, Math.min(left, window.innerWidth - cw - margin));
-    top = Math. mac(margin, Math.min(top, window.innerHeigh - ch - margin));
+    top = Math.max(margin, Math.min(top, window.innerHeigh - ch - margin));
     tutCard.style.left = left + 'px';
     tutCard.style.top = top + 'px';
     tutCard.dataset.side = step.side;
@@ -153,6 +153,7 @@ function showTutorialStep(i) {
     const max = (vertical ? cw : ch) - 24;
     tutCard.style.setProperty('--arrow', Math.max(24, Math.min(arrow, max)) + 'px');
   }
+}
 
   function startTutorial() {
     document.querySelector('.title-screen').classList.add('title-hidden');
@@ -181,7 +182,7 @@ function showTutorialStep(i) {
     if (!tutorial.classList.contains('tutorial-hidden')) showTutorialStep(tutorialIndex);
   });
   window.addEventListener('resize', () => {
-    if (!tutorial.classList.contains('tutorial-hidden')) showTutorialStep(tutorialIndex):
+    if (!tutorial.classList.contains('tutorial-hidden')) showTutorialStep(tutorialIndex);
   });
 
 // title screen
@@ -357,7 +358,7 @@ document.getElementById('play-btn').addEventListener('click', () => {
   btn.textContent = 'Resume';
 });
 
-document.getElementById('keydown', (e) => {
+document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     document.querySelector('.title-screen').classList.add('title-hidden');
   }
@@ -500,7 +501,7 @@ document.querySelector('.journal-close').addEventListener('click', (e) => {
 
 function openJournal() {
   renderJournal();
-  journal.classList.add('journal-opem');
+  journal.classList.add('journal-open');
 }
 
 function closeJournal() {
