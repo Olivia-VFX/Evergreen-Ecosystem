@@ -207,14 +207,14 @@ body {
   border-top-color: #8FAE7A;
 }
 
-.tutorial-card[data-side="left"::after {
+.tutorial-card[data-side="left"]::after {
   left: 100%;
   top: var(--arrow);
   margin-top: -12px;
   border-top-color: #8FAE7A;
 }
 
-.tutorial-card[data-side="right"::after {
+.tutorial-card[data-side="right"]::after {
   right: 100%;
   top: var(--arrow);
   margin-top: -12px;
@@ -265,7 +265,7 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: cemter;
+  justify-content: center;
   background: transparent;
   border: none;
   padding: 0;
@@ -288,9 +288,9 @@ body {
   left: 2vw;
   top: 2.2vh;
   width: clamp(40px, 4vw, 72px);
-  aspect-ratio: 1
+  aspect-ratio: 1;
   z-index: 30;
-  background: none;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
