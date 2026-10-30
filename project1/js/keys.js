@@ -203,10 +203,10 @@ const spiritParts = {
 const journal = document.querySelector('.journal-panel');
 
 const chordExplanations = {
-  major: 'this chord sounds bright and happy, like sunshine on a warm spring day. It is made from the lowest (root) note, then by moving 4 half-steps to the right to the 3rd, and then another 3 half-steps to the 5th.',
-  minor: 'this chord sounds a little sad and soft, like when you lose something you love. It is made from the lowest (root) note, then by moving 3 half-steps to the 3rd and then another 4 half-steps to the 5th.',
-  diminished: 'this chord sounds tense and mysterious, like something is about to happen. It is made from the lowest (root) note, then by moving 3 half-steps to the 3rd and then another 3 half-steps to the 5th.',
-  augmented: 'this chord sounds strange and dreamlike, like a weird dream. It is made from the lowest (root) note, then by moving 4 half-steps to the 3rd, and then another 4 half-steps to the 5th. ',
+  major: 'this chord sounds bright and happy. It is made from the lowest (root) note, then by moving 4 half-steps to the right to the 3rd, and then another 3 half-steps to the 5th.',
+  minor: 'this chord sounds a little sad and soft. It is made from the lowest (root) note, then by moving 3 half-steps to the 3rd and then another 4 half-steps to the 5th.',
+  diminished: 'this chord sounds tense and mysterious. It is made from the lowest (root) note, then by moving 3 half-steps to the 3rd and then another 3 half-steps to the 5th.',
+  augmented: 'this chord sounds strange and dreamlike. It is made from the lowest (root) note, then by moving 4 half-steps to the 3rd, and then another 4 half-steps to the 5th. ',
 };
 
 const chordTypeInfo = {
