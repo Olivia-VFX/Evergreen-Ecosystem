@@ -10,6 +10,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; 
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .title-screen {
@@ -231,8 +233,12 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40vw; 
+  width: min(42vw, 760px); 
+  max-width: 760px;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .garden-area {
@@ -251,12 +257,18 @@ body {
 
 .clear-garden-btn {
   position: fixed;
-  left: 85.6%;
-  top: 6.7%;
-  width: 10.2%;
-  height: 13.5%;
+  right: 7vw;
+  top: 5.5vh;
+  width: clamp(72px, 9vw, 140px);
+  aspect-ratio: 1 / 1.2;
   z-index: 6;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: cemter;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .clear-icon {
@@ -273,21 +285,25 @@ body {
 
 .settings-btn {
   position: fixed;
-  left: 2%;
-  top: 3%;
-  width: 5vw;
-  min-width: 40px;
+  left: 2vw;
+  top: 2.2vh;
+  width: clamp(40px, 4vw, 72px);
+  aspect-ratio: 1
   z-index: 30;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .settings-btn img {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 72px;
 }
 
 .settings-btn:hover {
@@ -306,6 +322,8 @@ body {
 }
 
 .piano-art {
+  display: block;
+  width: 100%;
   position: relative; 
   pointer-events: auto;
 }
