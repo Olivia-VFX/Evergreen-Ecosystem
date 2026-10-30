@@ -1,6 +1,6 @@
 // note info
 
-const keyPositions = {
+const keyPositions = { 
   'C':  { left: '12.8%', width: '10.6%', top: '21%', height: '79%' },
   'D':  { left: '23.4%', width: '10.6%', top: '21%', height: '79%' },
   'E':  { left: '34.1%', width: '10.6%', top: '21%', height: '79%' },
