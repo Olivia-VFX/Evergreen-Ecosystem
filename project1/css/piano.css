@@ -509,7 +509,7 @@ body {
   --basics-w: min(32vw, 520px);
   position: fixed;
   top: 0;
-  right: 18px;
+  right: 14px;
   height: 100vh;
   width: var(--basics-w);
   background: url('../images/basics-mid.png') 0 calc(var(--basics-w) * 0.7377) / 100% auto repeat-y;
