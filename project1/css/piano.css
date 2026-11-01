@@ -519,14 +519,14 @@ body {
 }
 
 .basics-panel.basics-open {
-  translate: translateX(0);
+  transform: translateX(0);
 }
 
 .basics-top {
   position: relative;
   width: 100%;
   aspect-ratio: 488 / 360;
-  background: url('../images/basics-top/png') 0 0 / 100% 100% no-repeat;
+  background: url('../images/basics-top.png') 0 0 / 100% 100% no-repeat;
 }
 .basics-tab-hit {
   position: absolute;
