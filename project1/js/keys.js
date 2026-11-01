@@ -87,6 +87,8 @@ const tutorialSteps = [
    text: 'Garden full? Click the sign and the tulips wilt, ready for a new chord.' },
   { target: '.journal-tab-hit', side: 'left', title: 'The journal',
    text: 'Every chord you discover is saved here. Click the J to slide it open and write your own definitons.' },
+  { target: '.basics-tab-hit', side: 'left', title: 'Music basics', 
+   text: 'Not sure what a root note is, or half step? Open this tab!' },
   ];
 
 const tutorial = document.querySelector('.tutorial');
@@ -96,6 +98,18 @@ const tutBack = document.querySelector('.tutorial-back');
 const tutNext = document.querySelector('.tutorial-next');
 let tutorialIndex = 0;
 
+// journal basics
+
+const musicBasics = [
+  { term: 'Half step',
+   text: 'The distance from one key to the very next key, black or white. C to C#/Bb is one half step, and so is E to F.' },
+  { term: 'Root note',
+   text: 'The note a chord is built on and name after. In C major the root is C. In the garden, the root is the lowest of your three tulips.' },
+  { term: 'Third',
+   text: 'The second note of the chord. Count half steps up from the root.'},
+  { term: 'Fifth',
+   text: 'The third note of the chord, usually 7 though it can be 6 or 8.'},
+  ];
 // tutorial 
 
 function showTutorialStep(i) {
@@ -158,6 +172,7 @@ function showTutorialStep(i) {
   function startTutorial() {
     document.querySelector('.title-screen').classList.add('title-hidden');
     document.querySelector('.journal-panel').classList.remove('journal-open');
+    basicsPanel.classList.remove('basics-open');
     tutorial.classList.remove('tutorial-hidden');
     tutorial.classList.add('no-anim');
     showTutorialStep(0);
@@ -508,6 +523,26 @@ function closeJournal() {
   journal.classList.remove('journal-open');
 }
 
+// music basics
 
+const basicsPanel = document.querySelector('.basics-panel');
+
+document.querySelector('.basics-entries').innerHTML = musicBasics.map(b => `<p><strong>${b.term}:</strong> ${b.text}</p>`).join('');
+document. querySelector('.basics-tab-hit').addEventListener('click', () => {
+  basicsPanel.classList.contains('basics-open') ? closeBasics() : openBasics();
+});
+document.querySelector('.basics-close').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeBasics();
+});
+
+function openBasics() {
+  closeJournal();
+  basicsPanel.classList.add('basics-open');
+}
+
+function closeBasics() {
+  basicsPanel.classList.remove('basics-open');
+}
 
 
