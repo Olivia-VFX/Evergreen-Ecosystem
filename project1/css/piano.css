@@ -545,6 +545,7 @@ body {
   right: 10%;
   overflow-y: auto;
   overscroll-behavior: contain;
+  font-family: "Caveat Brush", cursive;
   color: #3B2418;
 }
 
